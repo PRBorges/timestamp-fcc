@@ -46,7 +46,7 @@ router.get("/:dateStr", (req, res) => {
   const date = new Date(req.params.dateStr);
 
   if (isNaN(date)) {
-    res.json(invalidDate);
+    res.status(400).json(invalidDate);
   } else {
     res.json({
       utc: date.toUTCString(),
